@@ -1,2 +1,1 @@
-# eve-online-tranquility-status
-EVE Online Tranquility Status
+# EVE Online Tranquility Status
