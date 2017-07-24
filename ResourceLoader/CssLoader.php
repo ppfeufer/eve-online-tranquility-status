@@ -9,7 +9,7 @@ class CssLoader implements \WordPress\Plugin\EveOnlineTranquilityStatus\Interfac
 
 	public function enqueue() {
 		if(!\is_admin()) {
-			\wp_enqueue_style('eve-online-tranquility-status', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getInstance()->getPluginUri('css/eve-online-tranquility-status.min.css'));
+			\wp_enqueue_style('eve-online-tranquility-status', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getPluginUri('css/eve-online-tranquility-status.min.css'));
 		}
 	}
 }

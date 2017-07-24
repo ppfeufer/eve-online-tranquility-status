@@ -9,8 +9,8 @@ class JavascriptLoader implements \WordPress\Plugin\EveOnlineTranquilityStatus\I
 
 	public function enqueue() {
 		if(!\is_admin()) {
-			\wp_enqueue_script('reconnecting-websocket-js', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getInstance()->getPluginUri('js/reconnecting-websocket.min.js'), array('jquery'), '', true);
-			\wp_enqueue_script('eve-online-tranquility-status-js', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getInstance()->getPluginUri('js/eve-online-tranquility-status.min.js'), array('jquery'), '', true);
+			\wp_enqueue_script('reconnecting-websocket-js', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getPluginUri('js/reconnecting-websocket.min.js'), array('jquery'), '', true);
+			\wp_enqueue_script('eve-online-tranquility-status-js', \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\PluginHelper::getPluginUri('js/eve-online-tranquility-status.min.js'), array('jquery'), '', true);
 		}
 	}
 }
