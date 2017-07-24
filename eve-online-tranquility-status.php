@@ -34,7 +34,7 @@ class EveOnlineTranquilityStatus {
 //		// Loading CSS
 		$cssLoader = new ResourceLoader\CssLoader();
 		$cssLoader->init();
-//
+
 //		// Loading JavaScript
 		$javascriptLoader = new ResourceLoader\JavascriptLoader;
 		$javascriptLoader->init();
