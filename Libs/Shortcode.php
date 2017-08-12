@@ -32,11 +32,13 @@ class Shortcode {
 	 */
 	public function registerShortcodes($shortcodes) {
 		foreach($shortcodes as $shortcode) {
-			\add_shortcode($shortcode, array($this, 'shortcode' . \WordPress\Plugin\BootstrapShortcodes\Helper\StringHelper::camelCase($shortcode, true)));
+			\add_shortcode($shortcode, array($this, 'shortcode' . \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\StringHelper::getInstance()->camelCase($shortcode, true)));
 		} // END foreach($shortcodes as $shortcode)
 	} // END public function registerShortcodes()
 
 	public function shortcodeEveTqStatus($atts, $content = null) {
-		return '<span class="tq-status"></span>';
-	}
-}
+		$serverStatus = \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\ApiHelper::getInstance()->getEsiData('status/');
+
+		return '<span class="tq-status">'. \number_format($serverStatus->players, 0, ',', '.') . ' ' . \__('Capsuleers online', 'eve-online-tranquility-status') . '</span>';
+	} // END public function shortcodeEveTqStatus($atts, $content = null)
+} // END class Shortcode

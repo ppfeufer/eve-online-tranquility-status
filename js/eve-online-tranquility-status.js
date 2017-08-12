@@ -1,34 +1,44 @@
+/* global tqStatusL10n, ReconnectingWebSocket */
+
 jQuery(document).ready(function($) {
 	// setup websocket with callbacks
 	var ws = new ReconnectingWebSocket('wss://zkillboard.com:2096/', '', {
 		maxReconnectAttempts: 15
 	});
 
-	ws.onmessage = function (event) {
-		wslog(event.data);
-	};
-
+	/**
+	 * wslog
+	 *
+	 * @param {type} msg
+	 * @returns {undefined}
+	 */
 	function wslog(msg) {
 		if(msg === 'ping' || msg === 'pong') {
 			return;
-		}
+		} // END if(msg === 'ping' || msg === 'pong')
 
-		json = JSON.parse(msg);
+		var json = JSON.parse(msg);
 
 		if(json.action === 'tqStatus') {
-			tqStatus = json.tqStatus;
-			tqCount = json.tqCount;
+//			var tqStatus = json.tqStatus;
+			var tqCount = json.tqCount;
 
-			if(tqStatus === 'OFFLINE') {
-				html = '<span class="tq-status-red">' + tqCount.replace(',', '.') + " capsuleers online</span>";
-			} else {
-				html = '<span class="tq-status-green">' + tqCount.replace(',', '.') + " capsuleers online</span>";
-			}
+//			if(tqStatus === 'OFFLINE') {
+//				html = tqCount.replace(',', '.') + ' capsuleers online';
+//			} else {
+//				html = tqCount.replace(',', '.') + ' capsuleers online';
+//			} // END if(tqStatus === 'OFFLINE')
+
+			var html = tqCount.replace(',', '.') + ' ' + tqStatusL10n.online;
 
 			$('.tq-status').html(html);
 			$('.last-hour').text(json.kills);
 		} else if(json.action === 'reload') {
-			setTimeout("location.reload();", (Math.random() * 150000));
-		}
-	}
+			setTimeout('location.reload();', (Math.random() * 150000));
+		} // END if(json.action === 'tqStatus')
+	} // END function wslog(msg)
+
+	ws.onmessage = function(event) {
+		wslog(event.data);
+	};
 });

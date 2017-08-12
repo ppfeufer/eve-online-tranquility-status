@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/ppfeufer/eve-online-tranquility-status
  * Git URI: https://github.com/ppfeufer/eve-online-tranquility-status
  * Description: Show the EVE Online Tranquility Sever Status with a Shortcode
- * Version: 0.1-r20170723
+ * Version: 0.1
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
  * Text Domain: eve-online-tranquility-status
@@ -32,8 +32,8 @@ class EveOnlineTranquilityStatus {
 	 */
 	public function init() {
 //		// Loading CSS
-		$cssLoader = new ResourceLoader\CssLoader();
-		$cssLoader->init();
+//		$cssLoader = new ResourceLoader\CssLoader();
+//		$cssLoader->init();
 
 //		// Loading JavaScript
 		$javascriptLoader = new ResourceLoader\JavascriptLoader;
@@ -42,11 +42,14 @@ class EveOnlineTranquilityStatus {
 		$this->initShortcodes();
 	} // END public function init()
 
+	/**
+	 * Initiate the shortcode
+	 */
 	private function initShortcodes() {
 		$shortcode = new Libs\Shortcode;
 		$shortcode->init();
-	}
-}
+	} // END private function initShortcodes()
+} // END class EveOnlineTranquilityStatus
 
 /**
  * Start the show ....
@@ -65,8 +68,13 @@ function initializePlugin() {
 // Hook me up baby!
 \add_action('plugins_loaded', 'WordPress\Plugin\EveOnlineTranquilityStatus\initializePlugin');
 
-// Template function
+/**
+ * Template function
+ *
+ * @return string
+ */
 function getTqStatus() {
 	$tqStatus = new Libs\Shortcode;
+
 	return $tqStatus->shortcodeEveTqStatus('', '');
-}
+} // END function getTqStatus()

@@ -226,7 +226,6 @@
 			evt.initCustomEvent(s, false, false, args);
 			return evt;
 		}
-		;
 
 		this.open = function (reconnectAttempt) {
 			ws = new WebSocket(self.url, protocols || []);

@@ -9,4 +9,4 @@ interface AssetsInterface {
 	public function init();
 
 	public function enqueue();
-}
+} // END interface AssetsInterface
