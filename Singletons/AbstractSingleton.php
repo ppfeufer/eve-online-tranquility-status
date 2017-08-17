@@ -8,7 +8,7 @@ abstract class AbstractSingleton {
 	} // END protected function __construct()
 
 	final public static function getInstance() {
-		static $instances = array();
+		static $instances = [];
 
 		$calledClass = \get_called_class();
 

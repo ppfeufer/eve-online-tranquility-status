@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/ppfeufer/eve-online-tranquility-status
  * Git URI: https://github.com/ppfeufer/eve-online-tranquility-status
  * Description: Show the EVE Online Tranquility Sever Status with a Shortcode
- * Version: 0.1
+ * Version: 0.2-dev
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
  * Text Domain: eve-online-tranquility-status

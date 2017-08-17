@@ -4,7 +4,7 @@ namespace WordPress\Plugin\EveOnlineTranquilityStatus\ResourceLoader;
 
 class CssLoader implements \WordPress\Plugin\EveOnlineTranquilityStatus\Interfaces\AssetsInterface {
 	public function init() {
-		\add_action('wp_enqueue_scripts', array($this, 'enqueue'), 99);
+		\add_action('wp_enqueue_scripts', [$this, 'enqueue'], 99);
 	} // END public function init()
 
 	public function enqueue() {

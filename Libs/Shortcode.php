@@ -20,9 +20,9 @@ class Shortcode {
 	 * @return array Array with all supported shortcodes
 	 */
 	private function getShortcodeArray() {
-		$shortcodes = array(
+		$shortcodes = [
 			'eve-tq-status',
-		);
+		];
 
 		return $shortcodes;
 	} // END private function getShortcodeArray()
@@ -32,7 +32,7 @@ class Shortcode {
 	 */
 	public function registerShortcodes($shortcodes) {
 		foreach($shortcodes as $shortcode) {
-			\add_shortcode($shortcode, array($this, 'shortcode' . \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\StringHelper::getInstance()->camelCase($shortcode, true)));
+			\add_shortcode($shortcode, [$this, 'shortcode' . \WordPress\Plugin\EveOnlineTranquilityStatus\Helper\StringHelper::getInstance()->camelCase($shortcode, true)]);
 		} // END foreach($shortcodes as $shortcode)
 	} // END public function registerShortcodes()
 

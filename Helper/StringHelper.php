@@ -14,7 +14,7 @@ class StringHelper extends \WordPress\Plugin\EveOnlineTranquilityStatus\Singleto
 	 * @param array $noStrip
 	 * @return string
 	 */
-	public function camelCase($string, $ucFirst = false, $noStrip = array()) {
+	public function camelCase($string, $ucFirst = false, $noStrip = []) {
 		// First we make sure all is lower case
 		$string = \strtolower($string);
 
