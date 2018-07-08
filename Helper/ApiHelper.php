@@ -16,7 +16,7 @@ class ApiHelper extends \WordPress\Plugin\EveOnlineTranquilityStatus\Singletons\
 	protected function __construct() {
 		parent::__construct();
 
-		$this->esiUrl = 'https://esi.tech.ccp.is/latest/';
+		$this->esiUrl = 'https://esi.evetech.net/latest/';
 	} // END protected function __construct()
 
 	/**
